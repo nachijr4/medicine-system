@@ -1,0 +1,31 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" href="/stylesheets/user/medicine.css">
+<body>
+  <div class="container" style="padding:0px 150px ">
+
+  <form  action="/<%=currentUser.username %>/addnewmedicine" method="POST">
+    <div class="form-group">
+      <label for="input1">Medicine Name:</label>
+      <input type="text" name="name" class="form-control" id="input1" placeholder="Medicine name" style="text-transform: lowercase" required>
+    </div>
+    <div class="form-group">
+      <label for="input2">Image URL:</label>
+      <input type="text" name="image" class="form-control" id="input2" placeholder="image of the medicine" required>
+    </div>
+    <div class="form-group">
+      <label for="input3">Description:</label>
+      <textarea name="description" class="form-control" id="input3" rows="8" cols="80" required>Description</textarea>
+    </div>
+    <div class="form-group">
+      <label for="input4">Price of the medicine</label>
+      <input type="text" class="form-control" id="input4" name="price" placeholder="Price of the medicine" required>
+    </div>
+    <div class="form-group">
+      <label for="input5">Number in Stock</label>
+      <input type="number" class="form-control" id="input5" name="medicine_count" value="<%=count%>" required>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,73 @@
+<% include ../partials/header.ejs %>
+
+<link rel="stylesheet" href="/stylesheets/medicalshop/viewcart.css">
+
+<a href="/home/cart/history" id="previous" class="btn btn-info"><i class="fas fa-history"></i> Previous Orders</a>
+
+<div class="row">
+<% carts.forEach(function(cart){%>
+  <% if(!cart.isReceived){%>
+      <div class="col-md-8">
+
+
+<div class="container" style=" margin:10px 10px; max-width:100%;">
+<div class="card ">
+  <div class="card-header" style="text-align:center;">
+      <%= cart.shopName %>
+  </div>
+  <div class="card-body align-items-start  d-inline" style="margin:0px;">
+    <div class="row">
+      <% cart.medicine.forEach(function(medicine){%>
+        <div class="col-md-4">
+        <div class="card m-0 p-0 pt-10  ">
+
+          <div class="card-header ">
+            <%= medicine.name.name %>
+          </div>
+          <div class="card-body ">
+            <img src="<%= medicine.name.image %>" alt="Medicine Image" class="" style="height:60px; width: 60px;">
+            <p class="d-inline">Ordered Quantity: <%=medicine.count%></p>
+          </div>
+        </div>
+        </div>
+        <%});%>
+      </div>
+
+      <div class="row">
+    <%if(cart.isCheckedOut == false){%>
+    <form class="" action="/home/cart/placeorder" method="post" class="d-inline">
+      <input type="text" name="cartId" class="d-none" value="<%=cart._id%>">
+      <div class="form-group col-md-4">
+        <label for="address" ></label>
+        <textarea id="address" class="form-control" name="address" rows="8" cols="80" required></textarea>
+      </div>
+      <button class="btn btn-primary "><i class="far fa-arrow-alt-circle-down"></i> Order</button>
+    </form>
+  </div>
+    <% if(cart.isDispatched == false){%>
+      <form class="" action="/home/cart/delete" method="post" class="d-inline">
+        <input type="text" name="id" class="d-none" value="<%=cart._id%>">
+        <input type="text" name="shopName" class="d-none" value="<%=cart.shopName%>">
+        <button id="delete" class="btn btn-warning "><i class="far fa-trash-alt"></i> Delete</button>
+      </form><%}else{%>
+      </form>
+      <%}%>
+      <%}else if(cart.isDispatched == true){%>
+        <div >
+          <p>This order has been Dispatched</p>
+        </div>
+        <form class="" action="/home/cart/received" method="post" class="d-inline">
+          <input type="text" name="cartId" class="d-none" value="<%=cart._id%>">
+          <button class="btn btn-warning "><i class="fas fa-check-double"></i> Received</button>
+          <%}else{%>
+            <p class="d-inline">This order has been placed</p>
+            <%}%>
+            
+          </div>
+          </div>
+</div>
+</div>
+<%}});%>
+</div>  
+
+<% include ../partials/footer.ejs %>

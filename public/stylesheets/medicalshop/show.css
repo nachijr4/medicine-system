@@ -1,0 +1,49 @@
+.card-text{
+  /* height: 0%; */
+  display: none;
+}
+
+body{
+  text-transform: capitalize;
+}
+
+.hover:hover .card-text{
+  display: block;
+  /* height:100%; */
+  transition: all 2s;
+}
+
+#shopimg{
+  width: 500px;
+  height: 100px;
+}
+
+.card{
+  background-color: #e6f5ff;
+}
+
+.card-img-top{
+  height: 300px;
+  width: 286px;
+}
+
+body{
+  background-image: url("https://images.unsplash.com/photo-1460526216608-9595710529c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+
+  /* background-image: linear-gradient(to right top, #0b0c0c, #2c3031, #4e5559, #767d85, #a3a6b3, #aeaec3, #bdb5d1, #cfbbde, #bda0d0, #ab86c1, #996cb2, #8852a3); */
+  height: auto;
+background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+
+html,body{
+  margin: 0;
+  min-height: 100%;
+}
+
+h5.d-inline{
+  font-weight: 20px;
+  color: white;
+}

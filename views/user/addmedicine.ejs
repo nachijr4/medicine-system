@@ -1,0 +1,21 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" href="/stylesheets/user/medicine.css">
+
+<div class="container" style="padding:0px 150px ">
+
+<form  action="/<%=shopname.username%>/addmedicine" method="post">
+  <div class="form-group">
+    <label for="input1"></label>
+    <input type="text" id="input1" name="medicine_name" class="form-control" placeholder="Medicine Name" required>
+  </div>
+  <div class="form-group">
+    <label for="label2"></label>
+    <input type="number" id="input2" name="medicine_count" class="form-control" placeholder="Medicine count" required>
+  </div>
+
+  <button class="btn btn-primary">Submit</button>
+
+</form>
+</div>
+
+<% include ../partials/footer.ejs %>

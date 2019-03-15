@@ -1,0 +1,30 @@
+<% include ../partials/header.ejs %>
+
+<link rel="stylesheet" href="/stylesheets/medicalshop/home.css">
+<div class="d-flex flex column justify-content-between">
+  <% user.forEach(function(currentUser){ %>
+    <% if (currentUser.isAdmin === true){%>
+    <div class="card" style="width: 18rem;">
+  <img src="<%= currentUser.image %>" class="card-img-top" style="width:286px; height:190px;">
+  <div class="card-body">
+    <h5 class="card-title"><%= currentUser.username %> Pharmacy</h5>
+    <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Location: <%= currentUser.location %></li>
+  </ul>
+  <div class="card-body">
+    <a href="/home/<%= currentUser.username %>" class="card-link btn btn-primary"><i class="far fa-plus-square"></i> Order Medicines</a>
+
+  </div>
+</div>
+<%}%>
+  <%}); %>
+
+</div>
+
+
+
+
+
+<% include ../partials/footer.ejs %>

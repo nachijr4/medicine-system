@@ -1,0 +1,43 @@
+form button{
+  margin-left: 20px;
+}
+
+#delete{
+  margin: 10px 4px;
+}
+
+body{
+  background-image: url("https://images.unsplash.com/photo-1460526216608-9595710529c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  
+  /* background-image: linear-gradient(to left top, #60e3e3, #3ce5d6, #15e6c4, #05e5ac, #2be48f, #6ddc6c, #95d24d, #b5c733, #ddb137, #f49c51, #fa8b71, #f0838f); */
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  min-height: 715px;
+  text-transform: capitalize;
+}
+
+.col-md-4{
+  padding: 10px;
+}
+div p {
+  display:block;
+}
+
+.card{
+  background-color: #e6f5ff;
+}
+
+#previous{
+  margin-left: 25px;
+}
+
+textarea.form-control{
+  height: 111px;
+}
+
+
+html,body{
+  margin: 0;
+  min-height: 100%;
+}

@@ -1,0 +1,48 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" href="/stylesheets/user/vieworders.css">
+<a href="/<%=currentUser.username%>/vieworders/history" class="btn btn-primary"><i class="fas fa-history"></i> Previous Orders</a>
+  <% foundCarts.forEach(function(cart){%>
+    <%if(cart.isCheckedOut==true && cart.isDispatched==false){%>
+      <div class="row">
+        <div class="col-md-7 ">
+
+
+      <div class="card padd">
+    <div class="card-body">
+      <div>
+        CustomerName    : <p style="display:inline;"><%= cart.customerName %></p>
+      </div>
+      <div class="">
+        Delivery Address : <p style="display:inline;"><%= cart.address %></p>
+      </div>
+      <form  action="/<%=cart.shopName%>/dispatch" method="post">
+        <div class="row">
+      <%cart.medicine.forEach(function(medicine){ %>
+          <div class="col-md-4">
+            <div class="card" style="margin-bottom:5px;">
+              <div class="card-body">
+                <div class="">
+
+                <img src="<%=medicine.name.image%>" alt="Med Img" style="height:60px; width: 60px;">
+                <div class="d-flex d-block">Name    : <%= medicine.name.name %></div>
+                <div class="d-flex d-block">
+                  Quantity: <%= medicine.count %>
+                </div>
+                  <input type="text" name="cartId" value="<%=cart._id%>" class="d-none">
+              </div>
+
+              </div>
+            </div>
+          </div>
+          <%})%>
+        </div>
+      <button class="btn btn-primary"><i class="fas fa-level-up-alt"></i> Dispatch</button>
+    </form>
+    </div>
+    <%}%>
+  </div>
+</div>
+</div>
+  <%})%>
+
+<% include ../partials/footer.ejs %>

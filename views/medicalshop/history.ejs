@@ -1,0 +1,36 @@
+<% include ../partials/header.ejs %>
+<link rel="stylesheet" href="/stylesheets/medicalshop/history.css">
+
+<div class="row">
+
+  <%carts.forEach(function(cart){%>
+    <%if(cart.isReceived){%>
+    <div class="col-md-8">
+    <div class="card">
+  <div class="card-header">
+    <p style="text-align:center;"><%= cart.shopName  %> Pharmacy</p>
+  </div>
+  <div class="card-body">
+    This order has been delivered
+    <div class="row">
+    <%cart.medicine.forEach(function(medicine){%>
+        <div class="col-md-4">
+          <div class="card">
+
+      <div class="card-header">
+        <p style="text-align:center;"><%= medicine.name.name  %> </p>
+      </div>
+      <div class="card-body">
+        <img src="<%= medicine.name.image %>" alt="Medicine Image" class="" style="height:60px; width: 60px;">
+        <p class="d-inline">Ordered Quantity: <%=medicine.count%></p>
+      </div>
+    </div>
+    </div>
+    <%});%>
+  </div>
+  </div>
+</div>
+</div>
+    <%}});%>
+
+</div>
