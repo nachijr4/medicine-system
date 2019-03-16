@@ -16,8 +16,8 @@ var indexroutes = require("./routes/index.js");
 var medicine = require("./models/medicine.js")
     user     = require("./models/user.js");
 //--------------------------------------------------------------
-// mongoose.connect("mongodb://nachijr4:PAssword00!!@ds113871.mlab.com:13871/medsys",{useNewUrlParser: true});
-mongoose.connect(process.env.database,{useNewUrlParser: true});
+mongoose.connect("mongodb://nachijr4:PAssword00!!@ds113871.mlab.com:13871/medsys",{useNewUrlParser: true});
+// mongoose.connect(process.env.database,{useNewUrlParser: true});
 // mongoose.connect("mongodb://localhost2:27017/medsys",{useNewUrlParser: true});
 mongoose.set('useCreateIndex', true);
 console.log(__dirname);
