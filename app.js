@@ -47,4 +47,4 @@ app.use(function(req,res,next){
 app.use(indexroutes);
 app.use(medicalshopUser);
 app.use(medicalshopCustomer);
-app.listen(3000);
+app.listen(process.env.PORT);
