@@ -8,7 +8,7 @@ function graphics(){
         wel.text("        ");
         }
         wel.text(wel.text()+word.charAt(i++));
-        console.log(i);
+        // console.log(i);
         setTimeout(graphics,500);
     }
     else{

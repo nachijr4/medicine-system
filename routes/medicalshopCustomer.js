@@ -73,11 +73,9 @@ routes.post("/home/cart/placeorder",middleware.isLoggedIn, middleware.isCustomer
 
 //------------------------------delete cart---------------------------------------------
 routes.post("/home/cart/delete",middleware.isLoggedIn, middleware.isCustomer,function(req,res){
-  console.log(req.body.id);
   carts.deleteOne({_id: req.body.id}, function(err){
     if(err){console.log(err);}
     else{
-      console.log("deleted Succecfully");
       res.redirect("back");
     }
   })
@@ -98,7 +96,6 @@ routes.post("/home/:shopname/:medicineId",function(req,res){
     var checkedOut = null;
     if(err){console.log(err);}
     else{
-      console.log(foundCarts);
       medicine.findOne({_id: req.params.medicineId},function(err,med){
           if(foundCarts){
             var flag = false;
@@ -106,7 +103,6 @@ routes.post("/home/:shopname/:medicineId",function(req,res){
               if(!foundCart.isCheckedOut){
                 checkedOut = false;
             foundCart.medicine.forEach(function(medicine){
-              console.log(medicine.name,med._id);
               if(medicine.name.name == med.name){
                 // console.log(toString(medicine.name.name) ,toString(med.name),toString(medicine.name.name) == toString(med.name));
                 medicine.count =  medicine.count + parseInt(req.body.count,10);

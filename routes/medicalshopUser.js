@@ -9,11 +9,9 @@ routes.post("/:username/remove",middleware.isLoggedIn,middleware.isAdmin,functio
   users.findOne({username:req.params.username},function(err,foundUser){
     if(err){console.log(err);}
     else{
-      console.log("entered the correct route"+req.params);
     for ( var i=0 ; i<foundUser.medicine.length;i++){
       if(foundUser.medicine[i].id == req.body.medRemove)
       {
-        console.log("deleted the medicine");
         foundUser.medicine.splice(i,1);
         break;
       }
@@ -78,9 +76,6 @@ routes.post("/:username/addmedicine",middleware.isLoggedIn,middleware.isAdmin,fu
         else{
           var flag = false;
           for(var i=0; i<user.medicine.length;i++){
-            console.log("checking");
-            console.log(user.medicine[i].id,foundmed._id)
-            console.log("It has become true",user.medicine[i].name===foundmed.name);
             if(user.medicine[i].name==foundmed.name){
               flag = true;
               user.medicine[i].number = parseInt(user.medicine[i].number) + parseInt(req.body.medicine_count);
@@ -123,7 +118,6 @@ routes.post("/:username/addnewmedicine", middleware.isLoggedIn, middleware.isAdm
 },function(req,res){
   var med_count = req.body.medicine_count;
   delete req.body.medicine_count;
-  console.log(req.body);
   var data = {
     name: req.body.name.toLowerCase(),
     image: req.body.image,
