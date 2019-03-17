@@ -1,6 +1,6 @@
 var wel = $("div p"), word="Welcome!";
 var i=0;
-console.log(wel.text());
+// console.log(wel.text());
 wel.text("        ");
 function graphics(){
     if(i<word.length){
@@ -13,7 +13,7 @@ function graphics(){
     }
     else{
         i=0;
-        console.log(i);
+        // console.log(i);
         // wel.text("        ");
         setTimeout(graphics,100);
     }
